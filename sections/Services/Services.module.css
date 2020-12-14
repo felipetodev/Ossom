@@ -1,0 +1,44 @@
+.container {
+    --textColor: var(--white);
+    --hColor: var(--white);
+    background: var(--blue);
+}
+
+.title {
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title p {
+    text-align: center;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.buttonGroup button {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 0;
+    border: 2px solid #fff;
+    font-size: 1.15rem;
+    width: 250px;
+}
+
+.buttonGroup button:first-of-type {
+    border-radius: 50px 0 0 50px;
+}
+
+.buttonGroup button:last-of-type {
+    border-radius: 0 50px 50px 0;
+}
+
+.buttonGroup .active {
+    background: var(--white);
+    color: var(--purple);
+}

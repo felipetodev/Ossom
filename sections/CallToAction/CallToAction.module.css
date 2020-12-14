@@ -1,0 +1,9 @@
+.container {
+    text-align: center;
+    --h4: var(--h2);
+    padding: 100px 0;
+}
+
+.container > h4 {
+    margin-bottom: 40px;
+}
