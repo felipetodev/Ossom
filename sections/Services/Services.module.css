@@ -1,7 +1,10 @@
 .container {
     --textColor: var(--white);
     --hColor: var(--white);
-    background: var(--blue);
+    background: linear-gradient(140deg, var(--pink) 10%, var(--blue));;
+    padding: 40px 0 350px;
+    margin-bottom: -350px;
+    height: 950px;
 }
 
 .title {
@@ -26,7 +29,7 @@
     background: rgba(255, 255, 255, 0);
     border-radius: 0;
     border: 2px solid #fff;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     width: 250px;
 }
 
@@ -41,4 +44,36 @@
 .buttonGroup .active {
     background: var(--white);
     color: var(--purple);
+}
+
+.servicesContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.service {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.summaryContainer {
+    display: flex;
+    align-items: center;
+}
+
+.summary {
+    background: #210d37;
+    padding: 100px 40px 40px;
+    border-radius: 50px 0 0 50px;
+    box-shadow: var(--shadow-3);
+}
+
+.details {
+    --textColor: var(--black);
+    --hColor: var(--black);
+    background: var(--white);
+    border-radius: 20px;
+    padding: 20px;
+    height: 450px;
+    box-shadow: var(--shadow-3);
 }
