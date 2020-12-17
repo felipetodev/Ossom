@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { wrap } from '@popmotion/popcorn'
 import styles from './Services.module.css'
 import { data, buttons } from './ServicesData'
+import Image from 'next/image'
 
 export default function Services() {
     const [ [panel, direction], setPanel ] = useState([0, 0])
@@ -13,9 +14,9 @@ export default function Services() {
     }
 
     const variants = {
-        enter: (direction) => {
+        enter: () => {
           return {
-            x: direction > 0 ? 1000 : -1000,
+            x: direction > 0 ? -1000 : 1000,
             opacity: 0
           }
         },
@@ -24,7 +25,7 @@ export default function Services() {
           x: 0,
           opacity: 1
         },
-        exit: (direction) => {
+        exit: () => {
           return {
             zIndex: 0,
             x: direction < 0 ? 1000 : -1000,
@@ -38,27 +39,40 @@ export default function Services() {
         return Math.abs(offset) * velocity;
     }
 
+    const onPanelSelect = (i) => {
+        setPanel((oldPanel) => {
+            const [oldIndex] = oldPanel
+            return [i, oldIndex > i ? -1 : 1]
+        })
+    }
+
     const displayPanel = (key) => {
-        console.log(key)
         return (
             <div className={styles.servicesContainer}>
                 <div className={styles.service}>
                     <div className={styles.summaryContainer}>
                         <div className={styles.summary}>
+                            <div className={styles.cornerContainer}>
+                                <Image
+                                    src="/images/pp.png" 
+                                    height={155} 
+                                    width={245} 
+                                />
+                            </div>
                             <h4>{data[key].title}</h4>
                             <p>{data[key].summary}</p>
                         </div>
                     </div>
                     <div className={styles.details}>
                         {data[key].details.map(item => (
-                            <>
+                            <div key={item.title}>
                                 <h4>{item.title}</h4>
                                 <ul>
                                     {item.points.map(point => (
-                                        <li>{point}</li>
+                                        <li key={point}>{point}</li>
                                     ))}
                                 </ul>
-                            </>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -79,7 +93,7 @@ export default function Services() {
                     <button
                     key={button}
                     className={i === index ? styles.active : ''}
-                    onClick={() => setPanel([i, -1])}
+                    onClick={() => onPanelSelect(i)}
                     >{button}</button>
                 ))}
             </div>
@@ -108,9 +122,9 @@ export default function Services() {
                             const swipe = swipePower(offset.x, velocity.x);
                 
                             if (swipe < -swipeConfidenceThreshold) {
-                              paginate(1);
-                            } else if (swipe > swipeConfidenceThreshold) {
                               paginate(-1);
+                            } else if (swipe > swipeConfidenceThreshold) {
+                              paginate(1);
                             }
                         }}
                     >

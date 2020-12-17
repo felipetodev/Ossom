@@ -5,6 +5,18 @@
     padding: 40px 0 350px;
     margin-bottom: -350px;
     height: 950px;
+    position: relative;
+}
+
+.container::before {
+    content: '';
+    background-image: url('/images/topservices.svg');
+    background-size: cover;
+    position: absolute;
+    left: -2px;
+    right: 0;
+    top: -5px;
+    height: 200px;
 }
 
 .title {
@@ -66,6 +78,13 @@
     padding: 100px 40px 40px;
     border-radius: 50px 0 0 50px;
     box-shadow: var(--shadow-3);
+    position: relative;
+}
+
+.cornerContainer {
+    position: absolute;
+    top: -50px;
+    left: -50px;
 }
 
 .details {
@@ -73,7 +92,7 @@
     --hColor: var(--black);
     background: var(--white);
     border-radius: 20px;
-    padding: 20px;
+    padding: 40px;
     height: 450px;
     box-shadow: var(--shadow-3);
 }

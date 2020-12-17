@@ -10,14 +10,17 @@ export default function Blog({ posts }) {
             </div>
             <div className={styles.grid}>
                 {posts.map(post => (
-                    <PostPreview 
-                        title={post.title}
-                        coverImage={post.coverImage}
-                        date={post.date}
-                        excerpt={post.excerpt}
-                        author={post.author}
-                        slug={post.slug}
-                    />
+                    <div key={post.slug}>
+                        <PostPreview 
+                            title={post.title}
+                            coverImage={post.coverImage}
+                            date={post.date}
+                            excerpt={post.excerpt}
+                            author={post.author}
+                            slug={post.slug}
+                        />
+                    </div>
+
                 ))}
             </div>
             <button>Ver más</button>

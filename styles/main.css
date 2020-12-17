@@ -7,7 +7,7 @@
   --purple: #480198;
   --black: #231f20;
   --grey: #d1d3d4;
-  --lightGrey: #f4f4f4;
+  --lightGrey: #fafafa;
   --white: #ffffff;
 
   /* Usage */
@@ -46,6 +46,9 @@
   /* Containers */
   --containerMaxWidth: 100%;
   --containerHorizontalPadding: 1.25rem;
+
+  /* Waves */
+  --wave: var(--lightGrey);
 }
 
 /* Breakpoints */
